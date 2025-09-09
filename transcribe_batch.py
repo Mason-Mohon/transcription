@@ -153,56 +153,56 @@ def wait_for_jobs(client, job_names: List[str], analytics: bool=False, show_tran
         if job_names:
             time.sleep(poll_sec)
 
-    def main():
-        # Load environment variables from .env file
-        load_dotenv()
-        
-        ap = argparse.ArgumentParser()
-        ap.add_argument("--csv", required=True, help="CSV index with at least s3_uri,guest_name columns")
-        ap.add_argument("--output-bucket", required=True, help="S3 bucket where transcripts will be written")
-        ap.add_argument("--output-prefix", default="", help="S3 prefix/folder for outputs")
-        ap.add_argument("--region", default=os.environ.get("AWS_REGION","us-east-2"))
-        ap.add_argument("--profile", default="my-transcribe", help="AWS CLI profile name (overrides env vars if set)")
-        ap.add_argument("--language-code", default="en-US")
-        ap.add_argument("--force-channel", action="store_true", help="Force ChannelIdentification=True (overrides diarization)")
-        ap.add_argument("--max-speakers", type=int, default=2, help="Max speaker labels when diarization is used")
-        ap.add_argument("--redact-pii", action="store_true", help="Enable PII content redaction (basic settings)")
-        ap.add_argument("--wait", action="store_true", help="Poll for completion (simple)")
-        ap.add_argument("--poll-seconds", type=int, default=15)
-        ap.add_argument("--show-transcript", action="store_true", help="In --wait mode, print TranscriptFileUri for completed jobs")
-        ap.add_argument("--call-analytics", action="store_true", help="Use Call Analytics instead of standard Transcribe")
-        ap.add_argument("--role-arn", default=None, help="IAM role ARN (REQUIRED for Call Analytics)")
+def main():
+    # Load environment variables from .env file
+    load_dotenv()
+    
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--csv", required=True, help="CSV index with at least s3_uri,guest_name columns")
+    ap.add_argument("--output-bucket", required=True, help="S3 bucket where transcripts will be written")
+    ap.add_argument("--output-prefix", default="", help="S3 prefix/folder for outputs")
+    ap.add_argument("--region", default=os.environ.get("AWS_REGION","us-east-2"))
+    ap.add_argument("--profile", default="my-transcribe", help="AWS CLI profile name (overrides env vars if set)")
+    ap.add_argument("--language-code", default="en-US")
+    ap.add_argument("--force-channel", action="store_true", help="Force ChannelIdentification=True (overrides diarization)")
+    ap.add_argument("--max-speakers", type=int, default=2, help="Max speaker labels when diarization is used")
+    ap.add_argument("--redact-pii", action="store_true", help="Enable PII content redaction (basic settings)")
+    ap.add_argument("--wait", action="store_true", help="Poll for completion (simple)")
+    ap.add_argument("--poll-seconds", type=int, default=15)
+    ap.add_argument("--show-transcript", action="store_true", help="In --wait mode, print TranscriptFileUri for completed jobs")
+    ap.add_argument("--call-analytics", action="store_true", help="Use Call Analytics instead of standard Transcribe")
+    ap.add_argument("--role-arn", default=None, help="IAM role ARN (REQUIRED for Call Analytics)")
 
-        args = ap.parse_args()
+    args = ap.parse_args()
 
-        session = boto3.Session(region_name=args.region, profile_name=args.profile)
-        client = session.client("transcribe")
+    session = boto3.Session(region_name=args.region, profile_name=args.profile)
+    client = session.client("transcribe")
 
-        started = []
-        with open(args.csv, newline="", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            required = {"s3_uri","guest_name"}
-            missing = required - set(reader.fieldnames or [])
-            if missing:
-                print(f"ERROR: CSV is missing required columns: {missing}", file=sys.stderr)
-                sys.exit(2)
+    started = []
+    with open(args.csv, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        required = {"s3_uri","guest_name"}
+        missing = required - set(reader.fieldnames or [])
+        if missing:
+            print(f"ERROR: CSV is missing required columns: {missing}", file=sys.stderr)
+            sys.exit(2)
 
-            for row in reader:
-                if args.call_analytics:
-                    if not args.role_arn:
-                        print("ERROR: --role-arn is required for --call-analytics", file=sys.stderr)
-                        sys.exit(2)
-                    name = start_analytics_job(client, row, args)
-                else:
-                    name = start_standard_job(client, row, args)
-                started.append(name)
-                print(f"Started job: {name}")
+        for row in reader:
+            if args.call_analytics:
+                if not args.role_arn:
+                    print("ERROR: --role-arn is required for --call-analytics", file=sys.stderr)
+                    sys.exit(2)
+                name = start_analytics_job(client, row, args)
+            else:
+                name = start_standard_job(client, row, args)
+            started.append(name)
+            print(f"Started job: {name}")
 
-        if args.wait:
-            wait_for_jobs(client, started, analytics=args.call_analytics, show_transcript=args.show_transcript, poll_sec=args.poll_seconds)
+    if args.wait:
+        wait_for_jobs(client, started, analytics=args.call_analytics, show_transcript=args.show_transcript, poll_sec=args.poll_seconds)
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
 
     """
 export AWS_PROFILE=my-transcribe
