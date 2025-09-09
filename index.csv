@@ -1,0 +1,2 @@
+s3_uri,guest_name,job_name,language_code,vocab_name,categories,channel_identification,max_speakers,show_pii,show_transcript
+s3://pse-audio-files/2011.mp3,Thomas Sowell,-EFLive-test-job-1,en-US,EFLive-vocab,test-categories,false,4,false,false
