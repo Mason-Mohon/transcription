@@ -12,7 +12,7 @@ New features:
 - If neither --map nor --names is provided, top-N are named "Speaker 1..N" by duration order.
 
 Notes:
-- Amazon Transcribe doesn’t identify real people; it labels speakers like spk_0..spk_k.
+- Amazon Transcribe doesn't identify real people; it labels speakers like spk_0..spk_k.
 - If diarization is noisy (e.g., ads), keeping top-N collapses brief voices into "Other".
 """
 
@@ -170,5 +170,6 @@ if __name__ == "__main__":
  --json /Users/mason/Desktop/transcription/-EFLive-test-job-1.json \
  --out /Users/mason/Desktop/transcription/outputs/transcript.md \
  --map /Users/mason/Desktop/transcription/map.json \
- --names "Bill Hayes,Phyllis Schlafly,Thomas Sowell,Commercial" \
+ --keep-top-speakers 3 \
+ --names "Bill Hayes,Phyllis Schlafly,Thomas Sowell"
 """
