@@ -180,7 +180,7 @@ def main():
 
     started = []
     with open(args.csv, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter='\t')
         required = {"s3_uri","guest_name"}
         missing = required - set(reader.fieldnames or [])
         if missing:

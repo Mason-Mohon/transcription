@@ -212,7 +212,7 @@ def main():
     started = []
     print(f"[DEBUG] Opening CSV: {args.csv}")
     with open(args.csv, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter='\t')
         print(f"[DEBUG] CSV headers: {reader.fieldnames}")
         required = {"s3_uri","guest_name"}
         missing = required - set(reader.fieldnames or [])
@@ -248,6 +248,6 @@ export AWS_PROFILE=my-transcribe
   --output-bucket pse-audio-files \
   --output-prefix outputs/ \
   --language-code en-US \
-  --max-speakers 4 \
+  --max-speakers 10 \
   --wait --show-transcript
     """
