@@ -180,7 +180,7 @@ def main():
 
     started = []
     with open(args.csv, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f, delimiter='\t')
+        reader = csv.DictReader(f, delimiter=',')
         required = {"s3_uri","guest_name"}
         missing = required - set(reader.fieldnames or [])
         if missing:
@@ -208,7 +208,7 @@ if __name__ == "__main__":
 export AWS_PROFILE=my-transcribe
 /Users/mason/opt/anaconda3/envs/transcriptions/bin/python transcribe_batch.py \
   --profile my-transcribe \
-  --csv index.csv \
+  --csv /Users/mason/Desktop/transcription/index.csv \
   --output-bucket pse-audio-files \
   --output-prefix outputs/ \
   --language-code en-US \

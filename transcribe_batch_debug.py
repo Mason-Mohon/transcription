@@ -212,7 +212,7 @@ def main():
     started = []
     print(f"[DEBUG] Opening CSV: {args.csv}")
     with open(args.csv, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f, delimiter='\t')
+        reader = csv.DictReader(f, delimiter=',')
         print(f"[DEBUG] CSV headers: {reader.fieldnames}")
         required = {"s3_uri","guest_name"}
         missing = required - set(reader.fieldnames or [])

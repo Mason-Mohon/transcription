@@ -1,20 +1,14 @@
-s3_uri	guest_name	job_name	language_code	vocab_name	categories	channel_identification	max_speakers	show_pii	show_transcript
-s3://pse-audio-files/EFRL-1989-05-27-1.mp3	unknown	EFRL-1989-05-27-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-06-03-1.mp3	unknown	EFRL-1989-06-03-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-06-10-1.mp3	unknown	EFRL-1989-06-10-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-06-17-1.mp3	unknown	EFRL-1989-06-17-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-06-24-1.mp3	unknown	EFRL-1989-06-24-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-07-01-1.mp3	unknown	EFRL-1989-07-01-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-07-08-1.mp3	unknown	EFRL-1989-07-08-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-07-15-1.mp3	unknown	EFRL-1989-07-15-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-07-22-1.mp3	unknown	EFRL-1989-07-22-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-07-29-1.mp3	unknown	EFRL-1989-07-29-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-08-05-1.mp3	unknown	EFRL-1989-08-05-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-08-12-1.mp3	unknown	EFRL-1989-08-12-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-08-19-1.mp3	unknown	EFRL-1989-08-19-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-08-26-1.mp3	unknown	EFRL-1989-08-26-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-09-02-1.mp3	unknown	EFRL-1989-09-02-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-09-09-1.mp3	unknown	EFRL-1989-09-09-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-09-16-1.mp3	unknown	EFRL-1989-09-16-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-09-23-1.mp3	unknown	EFRL-1989-09-23-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
-s3://pse-audio-files/EFRL-1989-09-30-1.mp3	unknown	EFRL-1989-09-30-1	en-US	EFLive-vocab	test-categories	FALSE	10	FALSE	FALSE
+s3_uri,guest_name,job_name,language_code,vocab_name,categories,channel_identification,max_speakers,show_pii,show_transcript
+s3://pse-audio-files/inputs/EFRL-1989-10-07-1.mp3,unknown,EFRL-1989-10-07-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-10-14-1.mp3,unknown,EFRL-1989-10-14-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-10-21-1.mp3,unknown,EFRL-1989-10-21-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-10-28-1.mp3,unknown,EFRL-1989-10-28-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-11-04-1.mp3,unknown,EFRL-1989-11-04-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-11-11-1.mp3,unknown,EFRL-1989-11-11-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-11-18-1.mp3,unknown,EFRL-1989-11-18-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-11-25-1.mp3,unknown,EFRL-1989-11-25-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-12-02-1.mp3,unknown,EFRL-1989-12-02-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-12-09-1.mp3,unknown,EFRL-1989-12-09-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-12-16-1.mp3,unknown,EFRL-1989-12-16-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-12-23-1.mp3,unknown,EFRL-1989-12-23-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
+s3://pse-audio-files/inputs/EFRL-1989-12-30-1.mp3,unknown,EFRL-1989-12-30-1,en-US,EFLive-vocab,test-categories,FALSE,10,FALSE,FALSE
